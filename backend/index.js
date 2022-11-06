@@ -4,6 +4,7 @@ const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
+const path = require("path");
 
 const app = express();
 dotenv.config({ path: "backend/.env" });
