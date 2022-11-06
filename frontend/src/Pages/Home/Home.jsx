@@ -175,7 +175,7 @@ const Home = (props) => {
           });
           await axios
             .post(
-              "http://localhost:5000/api/user/create-pdf",
+              "/api/user/create-pdf",
               {
                 introduction,
                 contact,
@@ -194,7 +194,7 @@ const Home = (props) => {
             .then(async () => {
               console.log("created");
               await axios
-                .get("http://localhost:5000/api/user/fetch-pdf", {
+                .get("/api/user/fetch-pdf", {
                   responseType: "arraybuffer",
                   headers: {
                     token: "Bearer " + props.user.accessToken,
@@ -213,26 +213,6 @@ const Home = (props) => {
         }}
       >
         Submit
-      </button>
-
-      <button
-        onClick={async () => {
-          await axios
-            .get(
-              "http://localhost:5000/api/user/fetch-pdf",
-
-              {
-                headers: {
-                  token: "Bearer " + props.user.accessToken,
-                },
-              }
-            )
-            .then((res) => {
-              console.log(res);
-            });
-        }}
-      >
-        Download
       </button>
     </div>
   );
